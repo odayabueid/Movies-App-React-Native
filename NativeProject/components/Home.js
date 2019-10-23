@@ -41,6 +41,10 @@ class Home extends Component {
     }
 
     render() {
+        let filtered =this.state.films.filter(
+            (fil) =>{
+              return fil.title.toLowerCase().indexOf(this.state.text.toLowerCase()) !== -1;
+            })
         return (
             <View>
                 <View style={{ alignSelf: 'center', height: 40, marginTop: 35, borderWidth: 1, borderColor: "black", width: '70%', justifyContent: 'center', alignItems: 'center' }}>
@@ -48,7 +52,7 @@ class Home extends Component {
                 </View>
                 <ScrollView>
                     <View style={styles.container}>
-                        {this.state.films.map((item => {
+                        {filtered.map((item => {
                             return (
                                 <View key={item.id} style={styles.ViewImg} onPress={this.selectFilm}>
                                     <TouchableOpacity onPress={() => this.selectFilm(item)}>

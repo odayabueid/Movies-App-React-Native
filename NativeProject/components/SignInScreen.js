@@ -28,8 +28,6 @@ class SignInScreen extends Component {
             }
         }).then(res => res.json())
             .then(parsedRes => {
-                console.log("email equalllllllll", parsedRes.email)
-
                 if (parsedRes.email == this.state.email) {
                     this.goToHomePage()
                 } else {
