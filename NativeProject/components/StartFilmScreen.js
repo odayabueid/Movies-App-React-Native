@@ -7,7 +7,11 @@ export default class StartFilmScreen extends Component {
     render() {
         return (
             <View>
-
+                <Tile
+                    imageSrc={require('../assets/netflixWhite.png')}
+                    icon={{ name: 'play-circle', type: 'font-awesome' }}
+                    featured
+                />
             </View>
         )
     }
