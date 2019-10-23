@@ -55,68 +55,74 @@ class SignUpScreen extends Component {
 
             <View style={styles.container}>
 
+                <Image style={{height:100,width:200 ,marginBottom:30}} source={require('../assets/signup.png')}/>
+
                 <TextInput
                     style={styles.input}
-                    placeholder='Email'
+                    placeholder='Enter Valid Email'
                     autoCapitalize="none"
-                    placeholderTextColor='white'
+                    placeholderTextColor='#42A5F5'
                     onChangeText={val => this.setState({ email: val })}
                 />
                 <TextInput
                     style={styles.input}
-                    placeholder='Password'
+                    placeholder='Enter Strong Password'
                     secureTextEntry={true}
                     autoCapitalize="none"
-                    placeholderTextColor='white'
+                    placeholderTextColor='#42A5F5'
                     onChangeText={val => this.setState({ password: val })}
                 />
                 <Button
                     title='Sign Up'
                     onPress={this.signUp}
+                    color="#42A5F5"
                 />
                 <TouchableOpacity onPress={this.goToLoginPage}>
-                    <Text style={{color:'#42A5F5'}}>you have An Account? Please Login</Text>
+                    <Text style={{ color: '#42A5F5',marginTop:40 }}>you have An Account ? Please Login</Text>
                 </TouchableOpacity>
             </View>
-                )
-            }
-        }
-        
-        
-        
+        )
+    }
+}
+
+
+
 const styles = StyleSheet.create({
-                    input: {
-                    width: 350,
-                height: 55,
-                backgroundColor: '#42A5F5',
-                margin: 10,
-                padding: 8,
-                color: 'white',
-                borderRadius: 14,
-                fontSize: 18,
-                fontWeight: '500',
-                textAlign: 'center'
-            },
+    input: {
+        width: 350,
+        height: 55,
+        backgroundColor: '#fff',
+        borderWidth:1,
+        borderColor:'#42A5F5',
+        margin: 10,
+        padding: 8,
+        color: '#42A5F5',
+        borderRadius: 14,
+        fontSize: 18,
+        fontWeight: '500',
+        textAlign: 'center'
+    },
     container: {
-                    flex: 1,
-                justifyContent: 'center',
-                alignItems: 'center'
-            }
-        })
-        
-        
-        
+        flex: 1,
+        // justifyContent: 'center',
+        paddingTop:30,
+        alignItems: 'center'
+    }
+})
+
+
+
 const mapStateToProps = (state) => {
     return {
-                    counter: state.counter
-            }
-        }
-        
+        counter: state.counter
+    }
+}
+
 const mapDispatchToProps = (dispatch) => {
     return {
-                    incAction: () => {
+        incAction: () => {
             return dispatch({
-                    type: "INCREM"
+                type: "INCREM"
             })
         }
     }

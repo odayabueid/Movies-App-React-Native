@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import { View, Text,TextInput,Button, Alert,StyleSheet,TouchableOpacity  } from "react-native";
+import { View, Text, TextInput, Button, Alert, StyleSheet,Image ,TouchableOpacity } from "react-native";
 
 
 class SignInScreen extends Component {
 
-    state={
-        email:'',
-        password:''
+    state = {
+        email: '',
+        password: ''
     }
 
     goToHomePage = () => {
@@ -30,11 +30,11 @@ class SignInScreen extends Component {
             .then(parsedRes => {
                 console.log("email equalllllllll", parsedRes.email)
 
-                    if (parsedRes.email == this.state.email) {
-                        this.goToHomePage()
-                    } else {
-                        Alert.alert("Check your Email or Password")
-                    }
+                if (parsedRes.email == this.state.email) {
+                    this.goToHomePage()
+                } else {
+                    Alert.alert("Check your Email or Password")
+                }
             })
             .catch(err => {
                 console.log(err)
@@ -47,11 +47,12 @@ class SignInScreen extends Component {
         return (
             <View style={styles.container}>
 
+
                 <TextInput
                     style={styles.input}
                     placeholder=' Enter Your Email'
                     autoCapitalize="none"
-                    placeholderTextColor='white'
+                    placeholderTextColor='#42A5F5'
                     onChangeText={val => this.setState({ email: val })}
                 />
                 <TextInput
@@ -59,12 +60,13 @@ class SignInScreen extends Component {
                     placeholder='Enter Your Password'
                     secureTextEntry={true}
                     autoCapitalize="none"
-                    placeholderTextColor='white'
+                    placeholderTextColor='#42A5F5'
                     onChangeText={val => this.setState({ password: val })}
                 />
                 <Button
                     title='LogIn'
                     onPress={this.LogIn}
+                    color="#42A5F5"
                 />
             </View>
         )
@@ -78,10 +80,12 @@ const styles = StyleSheet.create({
     input: {
         width: 350,
         height: 55,
-        backgroundColor: '#42A5F5',
+        backgroundColor: '#fff',
+        borderWidth: 1,
+        borderColor: '#42A5F5',
         margin: 10,
         padding: 8,
-        color: 'white',
+        color: '#42A5F5',
         borderRadius: 14,
         fontSize: 18,
         fontWeight: '500',
@@ -90,6 +94,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        
+
     }
 })
